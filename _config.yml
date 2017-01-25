@@ -32,3 +32,16 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+comments:
+  allowedFields: ["name", "email", "url", "message"]
+  allowedOrigins: ["localhost", "sogn.io"]
+  branch: "gh-pages"
+  filename: "entry{@timestamp}"
+  format: "yaml"
+  moderation: false
+  name: "sogn.io"
+  path: "_data/comments/{options.slug}"
+  requiredFields: ["name", "email", "message"]
+  transforms:
+    email: md5
