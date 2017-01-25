@@ -34,14 +34,18 @@ exclude:
   - Gemfile.lock
 
 comments:
-  allowedFields: ["name", "email", "url", "message"]
-  allowedOrigins: ["localhost", "sogn.io"]
-  branch: "gh-pages"
-  filename: "entry{@timestamp}"
-  format: "yaml"
-  moderation: false
-  name: "sogn.io"
-  path: "_data/comments/{options.slug}"
-  requiredFields: ["name", "email", "message"]
+  allowedFields     : ['name', 'email', 'url', 'message']
+  branch            : "master"
+  commitMessage     : "New comment."
+  filename          : "comment-{@timestamp}"
+  format            : "yml"
+  moderation        : false
+  path              : "_data/comments/{options.slug}"
+  requiredFields    : ['name', 'email', 'message']
   transforms:
-    email: md5
+    email           : md5
+  generatedFields:
+    date:
+      type          : "date"
+      options:
+        format      : "iso8601"
